@@ -76,7 +76,7 @@ const SignUp = () => {
   };
   return (
     <AuthLayout>
-      <div className="w-full max-w-[500px] h-full mt-10 md:mt-0 px-4 mx-auto flex flex-col justify-center">
+      <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
         <h3 className="text-xl font-semibold text-black">Create an Account</h3>
         <p className="text-xs text-slate-700 mt-[5px] mb-6">
           Join us today by entering your details below.
