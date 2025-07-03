@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { SIDE_MENU_DATA } from "../../utils/data";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import CharAvatar from "../Cards/charAvatar";
+import CharAvatar from "../Cards/CharAvatar";
 import { UserContext } from "../../context/userContext";
 
 const SideMenu = ({ activeMenu }) => {
