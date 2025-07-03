@@ -6,8 +6,8 @@ import { validateEmail } from "../../utils/helper";
 import ProfilePhotoSelector from "../../components/inputs/ProfilePhotoSelector";
 import axiosInstance from "../../utils/axiosInstance"; // or wherever it's located
 import { API_PATHS } from "../../utils/apiPaths"; // adjust to actual path
-import { UserContext } from "../../context/UserContext";
 import uploadImage from "../../utils/uploadImage";
+import { UserContext } from "../../context/userContext";
 
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
