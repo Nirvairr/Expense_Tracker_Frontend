@@ -76,20 +76,19 @@ const SignUp = () => {
   };
   return (
     <AuthLayout>
-      <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
+      <div className="w-full max-w-md mx-auto px-4 py-8 flex flex-col justify-center">
         <h3 className="text-xl font-semibold text-black">Create an Account</h3>
-        <p className="text-xs text-slate-700 mt-[5px] mb-6">
+        <p className="text-xs text-slate-700 mt-1 mb-6">
           Join us today by entering your details below.
         </p>
         <form onSubmit={handleSignUp}>
           <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <Input
               value={fullName}
               onChange={({ target }) => setFullName(target.value)}
               placeholder="john"
-              className="gap-3 text-sm text-black bg-slate-300 rounded px-4 py-3 mb-4 mt-3 border border-slate-200 outline-none"
               type="text"
               label={"Full Name"}
             />
@@ -102,20 +101,18 @@ const SignUp = () => {
               label={"Email"}
             />
 
-            <div className="col-span-2">
-              <Input
-                value={password}
-                onChange={({ target }) => setPassword(target.value)}
-                placeholder="min 8 characters"
-                type="password"
-                label={"Password"}
-              />
-            </div>
+            <Input
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
+              placeholder="min 8 characters"
+              type="password"
+              label={"Password"}
+            />
           </div>
 
-          {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
-          <br />
-          <button type="submit" className="btn-primary w-full">
+          {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
+
+          <button type="submit" className="btn-primary w-full mt-6">
             SIGN UP
           </button>
 
