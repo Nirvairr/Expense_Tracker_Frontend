@@ -72,7 +72,7 @@ const EditProfile = () => {
       }
 
       const response = await axios.post(
-        `http://localhost:8000/api/v1/auth/edituser/${id}`,
+        `https://expense-tracker-backend-hp7a.onrender.com/api/v1/auth/edituser/${id}`,
         payload
       );
 
