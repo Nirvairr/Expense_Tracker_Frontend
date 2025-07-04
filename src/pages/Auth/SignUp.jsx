@@ -8,12 +8,14 @@ import axiosInstance from "../../utils/axiosInstance"; // or wherever it's locat
 import { API_PATHS } from "../../utils/apiPaths"; // adjust to actual path
 import uploadImage from "../../utils/uploadImage";
 import { UserContext } from "../../context/userContext";
+import Loader from "../../components/Loader";
 
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState(null);
   const { updateUser } = useContext(UserContext);
@@ -22,7 +24,7 @@ const SignUp = () => {
   //handle sign up form submit
   const handleSignUp = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     let profileImageUrl = "";
 
     if (!fullName) {
@@ -72,8 +74,13 @@ const SignUp = () => {
       } else {
         setError("Something went wrong. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <AuthLayout>
       <div className="w-full max-w-md mx-auto px-4 py-8 flex flex-col justify-center">

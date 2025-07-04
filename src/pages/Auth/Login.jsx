@@ -6,10 +6,12 @@ import { validateEmail } from "../../utils/helper";
 import axiosInstance from "../../utils/axiosInstance"; // or wherever it's located
 import { API_PATHS } from "../../utils/apiPaths"; // adjust to actual path
 import { UserContext } from "../../context/userContext";
+import Loader from "../../components/Loader";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const { updateUser } = useContext(UserContext);
@@ -18,7 +20,8 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     // a function to handle form submission.
-    e.preventDefault(); // prevent the page when you submit login form.
+    e.preventDefault();
+    setLoading(true); // prevent the page when you submit login form.
     if (!validateEmail(email)) {
       setError("please enter a valid email address.");
       return;
@@ -48,8 +51,13 @@ const Login = () => {
       } else {
         setError("Something went wrong. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <AuthLayout>
